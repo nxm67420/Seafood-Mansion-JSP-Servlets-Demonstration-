@@ -21,7 +21,7 @@
                 System.out.println("Driver loaded");
 
                 //Establish Connection
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/restaurant" , "root", "iCode0325");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/restaurant" , "root", "");
                 System.out.println("Database connected");
 
 
