@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../src/index.css">
+</head>
+<body style="background-color: lightcyan">
+    <div id="pageDiv">
+        <form action="myRestaurant" method="GET">
+
+        <!--Webpage Title-->
+        <div id="headerDiv">
+            <h1 align="center" style="color: goldenrod; border: 1px solid; font-size: 5em">Nick's Famous Grubs </h1>
+        </div>
+
+        <!--Main Div-->
+        <div id="bodyDiv" style="background-color: lemonchiffon; width: 800px;height: 550px;margin: 0 auto;margin-top: 50px;">
+            <!--Holds Items & TextArea-->
+            <div id="container">
+
+                <!--Holds Selection Output-->
+                <div id="txtOutput" style="background-color: lemonchiffon; width: 150px">
+<!--                    <textarea  id="output" style="height: 100px; margin: 10px;margin-top: 80px"></textarea>-->
+                    <ul id="myList" style="visibility: hidden">
+                        <li id="li1"></li>
+                        <br>
+                        <li id="li2"></li>
+                        <br>
+                        <li id="li3"></li>
+                        <br>
+                        <li id="li4"></li>
+                    </ul>
+                </div>
+                <!--End of List-->
+
+                <!--Holds Items For Sale-->
+                <div id="itemsDiv">
+                    <!--Pizza Selection-->
+                    <select id="Pizza" size="1" onchange="calcPizza()"> Pepperoni Pizza
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select> <label for="Pizza">Pizza</label>
+                    <br><br><br>
+
+                    <!--Burger Selection-->
+                    <select id="Burger" size="1" onchange="calcBurger()">Burger
+                        <option  value="0">0</option>
+                        <option id="one" value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><label for="Burger">Burger</label>
+                    <br><br><br>
+
+                    <!--Steak Selection-->
+                    <select id="Steak" size="1" onchange="calcSteak()">Steak
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><label for="Steak">Steak</label>
+                    <br><br><br>
+
+                    <!--Taco Selection-->
+                    <select id="Taco" size="1" onchange="calcTaco()">Taco Deluxe
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><label for="Taco">Taco Deluxe</label>
+
+                </div>
+            </div>
+            <!--End of Container Div-->
+
+            <!--Javascript Functions-->
+            <script>
+                //Resets Selected Values
+                function Reset() { //Works
+                    var resetPizza = document.getElementById("Pizza");
+                    var resetBurger = document.getElementById("Burger");
+                    var resetSteak = document.getElementById("Steak");
+                    var resetTaco = document.getElementById("Taco");
+                    resetPizza.selectedIndex = 0;
+                    resetBurger.selectedIndex = 0;
+                    resetSteak.selectedIndex = 0;
+                    resetTaco.selectedIndex = 0;
+                }
+
+                var counter = 0;
+                var mylist = ['li1', 'li2', 'li3', 'li4'];
+                //Method #2
+                function calcPizza() {
+                    //document.getElementById('myList').style.visibility = "visible";
+                    var resetPizza = document.getElementById("Pizza");
+                    var value = resetPizza.options[resetPizza.selectedIndex].text;
+                    document.getElementById(mylist[counter]).style.visibility = "visible";
+                    document.getElementById(mylist[counter]).innerHTML = value + "x Pizza(s) ";
+                    counter = counter + 1;
+                    //document.getElementById('output').value = value + "x Pizza ";
+                    //document.getElementById("output").value = "Fifth Avenue, New York City";
+                }
+
+                //Method #3
+                function calcBurger() {
+                    var resetBurger = document.getElementById("Burger");
+                    var value = resetBurger.options[resetBurger.selectedIndex].text;
+                    document.getElementById(mylist[counter]).style.visibility = "visible";
+                    document.getElementById(mylist[counter]).innerHTML = value + "x Burger(s)";
+                    counter = counter + 1;
+                    //document.getElementById('output').value = value + "x Burger(s)";
+                    //document.getElementById("output").value = "Fifth Avenue, New York City";
+                }
+
+                //Method #4
+                function calcSteak() {
+                    var resetSteak = document.getElementById("Steak");
+                    var value = resetSteak.options[resetSteak.selectedIndex].text;
+                    document.getElementById(mylist[counter]).style.visibility = "visible";
+                    document.getElementById(mylist[counter]).innerHTML = value + "x Steak(s) ";
+                    counter = counter + 1;
+                    //document.getElementById('output').value = value + "x Steak(s)";
+                    //document.getElementById("output").value = "Fifth Avenue, New York City";
+                }
+
+                //Method #5
+                function calcTaco() {
+                    var resetTaco = document.getElementById("Taco");
+                    var value = resetTaco.options[resetTaco.selectedIndex].text;
+                    document.getElementById(mylist[counter]).style.visibility = "visible";
+                    document.getElementById(mylist[counter]).innerHTML = value + "x Tacos(s) ";
+                    counter = counter + 1;
+                    //document.getElementById('output').value = value + "x Tacos(s)";
+                    //document.getElementById("output").value = "Fifth Avenue, New York City";
+                }
+            </script>
+            <!--End of Javascript-->
+
+            <!--Button Div-->
+            <div id="btnDiv">
+                <input class="btn" type="submit" value="Place Order"> <input class="btn" type="submit" value="Reset Order" id="reset" onclick="Reset()">
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+Create database seafoodMansion;
+
+use seafoodMansion;
+
+create table menu_item(
+
+ id int unsigned  not null auto_increment,
+  name varchar(25) not null,
+  description varchar(100),
+  picture_filename varchar(25),
+  price decimal(5, 2) not null,
+  included boolean not null,
+
+  primary key (id),
+  index(name)
+
+);
+
+insert into menu_item (name, description, picture_filename, price, included) values
+	('Lobster Tail Soup', 'Lobster Soup Layered W/ Steamed Lobster Tail', 'image/soup.jpg', '15.00', true);
+
+insert into menu_item (name, description, picture_filename, price, included) values
+	('Shrimp Grits', 'Southern Styl Grits Topped W/ Shrimp', 'image/grits.jpeg', '13.00', true);
+
+insert into menu_item (name, description, picture_filename, price, included) values
+	('Salmon', 'Single Salmon Sprinkled W/ Garlic', 'image/salmon.jpg', '10.00', true);
+
+insert into menu_item (name, description, picture_filename, price, included) values
+	('Oyster Platter', 'Platter of Oyster Shells Steamed To Perfection', 'image/steamed_oyster.jpeg', '25.00', true);
+
